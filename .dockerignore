@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.swp
+*.ipynb
+.env
+runs/
+model_logs/

@@ -1,0 +1,12 @@
+CAPTIONS_TEXT_PATH = "./data/captions.txt"
+CAPTIONS_JSON_PATH = "./data/captions.json"
+TRAIN_JSON_PATH = "./data/captions_train.json"
+TEST_JSON_PATH = "./data/captions_test.json"
+IMAGE_DIR = "./data/Images"
+MODEL_SAVE_PATH = "./models/best_model_attention.pth"
+#MODEL_SAVE_PATH = "./models/best_model.pth"
+BATCH_SIZE = 16
+EMBED_SIZE = 256
+HIDDEN_SIZE = 256
+LEARNING_RATE = 1e-4 
+NUM_EPOCHS = 100

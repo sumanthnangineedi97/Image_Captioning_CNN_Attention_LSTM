@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Captioning</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-image"></i> Image Captioning AI</h1>
+
+        <form action="/caption" method="post" enctype="multipart/form-data" class="upload-form">
+            <label class="upload-label" for="file-upload">
+                <i class="fas fa-upload"></i> Choose Image
+            </label>
+            <input id="file-upload" type="file" name="image" required onchange="showFileName()">
+                <span id="file-name" style="color: #555; font-size: 0.95rem; margin-top: -10px;"></span>
+            <button type="submit"><i class="fas fa-robot"></i> Generate Caption</button>
+        </form>
+
+
+        {% if image_url and caption %}
+        <div class="output-section">
+            <div class="image-box">
+                <img src="{{ image_url }}" alt="Uploaded Image">
+            </div>
+            <div class="caption-box">
+                <h2><i class="fas fa-quote-left"></i> Caption</h2>
+                <p>{{ caption }}</p>
+            </div>
+        </div>
+        {% endif %}
+        <script>
+        function showFileName() {
+            const input = document.getElementById('file-upload');
+            const fileName = input.files[0]?.name || '';
+            document.getElementById('file-name').textContent = fileName;
+        }
+        </script>
+    </div>
+</body>
+</html>

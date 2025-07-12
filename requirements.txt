@@ -1,0 +1,10 @@
+flask
+torch
+torchvision
+nltk
+pillow
+numpy==1.26.4
+scipy
+tqdm
+tensorboard
+protobuf
