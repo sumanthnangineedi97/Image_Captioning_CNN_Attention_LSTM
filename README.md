@@ -1,6 +1,11 @@
 ## 🧠 Image Captioning using CNN Encoder & MLP-Based Attention Decoder
 This repository contains the complete codebase and configuration used to train a CNN-based Encoder and MLP-Attention Decoder model for Image Captioning. The model is trained from scratch on the Flickr8k dataset using Slurm batch jobs on the Clemson Palmetto HPC cluster. The trained model is integrated into a Flask web application, containerized with Docker, and deployed on Google Cloud for live inference.
 
+## 🎥 Live Demo
+
+Curious how the app works in action? Check out the demo video below showcasing the image captioning web application running inside a Docker container:
+[![Watch Demo](https://user-images.githubusercontent.com/placeholder/demo-thumb.png)](https://github.com/sumanthnangineedi97/Image_Captioning_CNN_Attention_LSTM/assets/f98ab1c0-b838-4bb8-bbf5-e8b0179602a6)
+
 ## 📊 Dataset
 
 The model was trained on the [Flickr8k dataset](https://www.kaggle.com/datasets/adityajn105/flickr8k), which contains 8,000 images and five human-annotated captions per image.
