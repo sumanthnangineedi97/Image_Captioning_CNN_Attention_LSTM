@@ -1,8 +1,9 @@
-# Image Captioning using MLP-based Attention
-This repo contains the code and data used to train CNNEncoder and MLP-based attention decoder model used for Image Captioning. The Model is trained from scratch on Clemson Palmetoo using the above code on FLicker datset by using slurm batch jobs. And the trained model is integrated with flask for web deploymentand dockerized and deployed on Google Cloud 
+## 🧠 Image Captioning using CNN Encoder & MLP-Based Attention Decoder
+This repository contains the complete codebase and configuration used to train a CNN-based Encoder and MLP-Attention Decoder model for Image Captioning. The model is trained from scratch on the Flickr8k dataset using Slurm batch jobs on the Clemson Palmetto HPC cluster. The trained model is integrated into a Flask web application, containerized with Docker, and deployed on Google Cloud for live inference.
 
-## Dataset used for training
-https://www.kaggle.com/datasets/adityajn105/flickr8k
+## 📊 Dataset
+
+The model was trained on the [Flickr8k dataset](https://www.kaggle.com/datasets/adityajn105/flickr8k), which contains 8,000 images and five human-annotated captions per image.
 
 ## Project Structure
 ```
@@ -50,40 +51,47 @@ https://www.kaggle.com/datasets/adityajn105/flickr8k
 - **Attention**: Multi-layer Perceptron (MLP)-based attention mechanism over spatial features.
 - **Decoder**: LSTM that uses attended context + word embeddings to generate tokens.
 
-## 🏋️ Training Info
+## 🏋️ Training Instructions
+This section explains how to train the CNN + MLP Attention-based Image Captioning model from scratch using the Flickr8k dataset on Clemson Palmetto (HPC) with SLURM.
 
-I have used the **Clemson Palmetto High Performance Computing (HPC) Cluster** for training the image captioning model. The training job was submitted using a SLURM batch script that requested GPU nodes with the following configuration:
+🔧 Step 1: Environment Setup
+    Ensure the following Python libraries are installed (can be managed via conda or pip)
+```
+pip install -r requirements.txt
+```
 
-- **Job Scheduler**: SLURM
-- **GPU**: 2 × NVIDIA P100
-- **CPU**: 16 cores
-- **Memory**: 16 GB
-- **Training Time**: Up to 20 hours
-- **Batch Size**: 16
-- **Embedding Size**: 256
-- **Hidden Size**: 256
-- **Learning Rate**: 1e-4
-- **Epochs**: 100
+🔧 Step 2: Preprocess Captions
+To generate vocabulary and tokenize captions:
+```
+python src/data.py
+```
+This will create tokenized captions and build the vocabulary dictionary for training.
 
-The training script used: `src/train.py`  
-The SLURM job script: `train.sh`  
-Logs were saved in the `model_logs/` directory for monitoring and debugging.
+🔧 Step 3: Start Training
+Use this command to train locally:
+```
+python src/train.py
+```
+Or submit it as a SLURM job on Palmetto:
+```
+sbatch script_IC.sh
+```
 
-The model's performance was evaluated using BLEU score and logged via **TensorBoard**, which is stored in the `runs/image_captioning/` directory.
+## 🧪 Training & Evaluation Summary
+
+- **Training Script**: [`src/train.py`](src/train.py)  
+- **SLURM Job Script**: [`script_IC.sh`](train.sh)  
+- **Training Logs**: Saved in the [`model_logs/`](model_logs/) directory for monitoring and debugging.  
+- **Evaluation**: Model performance was evaluated using BLEU scores (BLEU-1 to BLEU-4).  
+- **TensorBoard Logs**: Stored in the [`runs/image_captioning/`](runs/image_captioning/) directory for visualization and progress tracking..
 ## 🌐 Deployment
 
-- Web app built using **Flask**.
-- Dockerized using `Dockerfile`.
-- Run locally with:
-  ```bash
-  docker build -t image-captioning-app .
-  docker run --name my-container -p 8080:5000 image-captioning-app
-  ```
-  
-## 🛠️ Technologies Used
+```bash
+# Build the Docker image
+docker build -t image-captioning-app .
+```
+```bash
+# Run the Docker container
+docker run --name image-captioning-container -p 8080:5000 image-captioning-app
+```
 
-- Python, PyTorch, Torchvision
-- Flask
-- Docker
-- SLURM + HPC (Palmetto)
-- TensorBoard
