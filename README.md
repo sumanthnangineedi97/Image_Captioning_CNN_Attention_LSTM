@@ -3,8 +3,10 @@ This repository contains the complete codebase and configuration used to train a
 
 ## 🎥 Live Demo
 
-Curious how the app works in action? Check out the demo video below showcasing the image captioning web application running inside a Docker container:
-[![Watch Demo](https://user-images.githubusercontent.com/placeholder/demo-thumb.png)](https://github.com/sumanthnangineedi97/Image_Captioning_CNN_Attention_LSTM/assets/f98ab1c0-b838-4bb8-bbf5-e8b0179602a6)
+Curious how the app works in action? Check out the demo video below showcasing the image captioning web application running inside a Docker container
+
+[![Watch Demo](https://raw.githubusercontent.com/sumanthnangineedi97/Image_Captioning_CNN_Attention_LSTM/main/static/demo-thumb.png)](https://github.com/sumanthnangineedi97/Image_Captioning_CNN_Attention_LSTM/assets/f98ab1c0-b838-4bb8-bbf5-e8b0179602a6)
+
 
 ## 📊 Dataset
 
