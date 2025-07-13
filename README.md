@@ -83,6 +83,10 @@ Or submit it as a SLURM job on Palmetto:
 ```
 sbatch script_IC.sh
 ```
+## 📁 Trained Model
+
+You can download the trained model from the following Google Drive link:  
+[📥 Trained Model - Google Drive](https://drive.google.com/drive/folders/1UvNnyyL2rYq21fz_Pzah_SNus5z1TY68?usp=sharing)
 
 ## 🧪 Training & Evaluation Summary
 
